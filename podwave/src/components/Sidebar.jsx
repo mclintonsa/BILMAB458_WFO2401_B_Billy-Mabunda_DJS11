@@ -18,6 +18,7 @@ const Flex = styled.div`
     justify-content: center;
 `;
 const Logo = styled.div`
+    width: 100%;
     color: ${({theme}) => theme.primary};
     display: flex;
     align-items: center;
