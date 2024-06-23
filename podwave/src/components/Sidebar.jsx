@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {HomeRounded, CloseRounded} from "@mui/icons-material";
+import {HomeRounded, CloseRounded, SearchRounded, FavoriteRounded, UploadRounded, LightModeRounded, LogoutRounded} from "@mui/icons-material";
 import LogoImage from "../Images/Logo.png";
 import { Link } from 'react-router-dom';
 
@@ -60,22 +60,68 @@ const NavText = styled.div`
     text-decoration: none; 
 `;
 
+const menuItems = [
+    {
+        link: "/",
+        name: "Dashboard",
+        icon: <HomeRounded/>,
+    },
+
+    {
+        link: "/search",
+        name: "Search",
+        icon: <SearchRounded/>,
+    },
+
+    {
+        link: "/favourites",
+        name: "Favourites",
+        icon: <FavoriteRounded/>,
+    },
+]
+
+const button = [
+    
+    {
+        fun: () => console.log("Upload")
+        name: "Upload",
+        icon: <UploadRounded/>,
+    },
+
+    {
+        fun: () => console.log("Upload")
+        name: "Light Mode",
+        icon: <LightModeRounded/>,
+    },
+
+    {
+        fun: () => console.log("Upload")
+        name: "Log Out",
+        icon: <LogoutRounded/>,
+    },    
+]
+
 const Sidebar = () => {
-    return <MenuContainer>
+    return (
+    <MenuContainer>
         <Flex>
         <Logo>
             <Image src={LogoImage} />
-            PodWave</Logo>
-        <close>
+            PodWave
+        </Logo>
+        <Close>
             <CloseRounded/>
-        </close>
+        </Close>
         </Flex>
-        <Link to="/">
-        <Elements>
-            <HomeRounded/>
-            <NavText>Dashboard</NavText>
-        </Elements>
-        </Link>
+        {menuItems.map((item)=>(
+            <Link to="/">
+            <Elements>
+                <HomeRounded/>
+                <NavText>Dashboard</NavText>
+            </Elements>
+            </Link>
+        ))}
+        
     </MenuContainer>
 
 };
