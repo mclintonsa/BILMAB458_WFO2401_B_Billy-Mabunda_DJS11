@@ -10,6 +10,13 @@ const MenuContainer = styled.div`
     background-color: ${({theme}) => theme.bg};
     color: ${({theme}) => theme.text_primary};
 `;
+
+const Flex = styled.div`
+    display: flex; 
+    flex-direction: row;
+    alight-items: center;
+    justify-content: center;
+`;
 const Logo = styled.div`
     color: ${({theme}) => theme.primary};
     display: flex;
@@ -26,10 +33,12 @@ const NavText = styled.div``;
 
 const Sidebar = () => {
     return <MenuContainer>
+        <flex>
         <Logo>PodWave</Logo>
         <close>
             <CloseRounded/>
         </close>
+        </flex>
         <Elements>
             <HomeRounded/>
             <NavText>Dashboard</NavText>
