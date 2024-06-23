@@ -27,18 +27,38 @@ const Logo = styled.div`
     font-size: 20px;
     margin: 16px 0px;
 `;
-const Close = styled.div``;
-const Elements = styled.div``;
-const NavText = styled.div``;
+const Close = styled.div`
+    display: none; 
+    @media (max-width: 1100px){
+        display: block
+    }
+`;
+const Elements = styled.div`
+    padding: 4px 16px;
+    display: flex; 
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    color: ${({theme}) => theme.text_secondary};
+    width: 100%;
+    &:hover {
+        background-color: ${({theme}) => theme.text_secondary +50};    
+    }
+`;
+const NavText = styled.div`
+    padding: 12px 0px;
+`;
 
 const Sidebar = () => {
     return <MenuContainer>
-        <flex>
+        <Flex>
         <Logo>PodWave</Logo>
         <close>
             <CloseRounded/>
         </close>
-        </flex>
+        </Flex>
         <Elements>
             <HomeRounded/>
             <NavText>Dashboard</NavText>
