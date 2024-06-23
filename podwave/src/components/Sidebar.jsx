@@ -51,64 +51,65 @@ const Elements = styled.div`
     cursor: pointer;s
     color: ${({theme}) => theme.text_secondary};
     width: 100%;
-    text-decoration: none;
+    text-decoration: none; !important;
     &:hover {
         background-color: ${({theme}) => theme.text_secondary +50};    
     }
 `;
 const NavText = styled.div`
     padding: 12px 0px;
-    text-decoration: none; 
+    text-decoration: none; !important;
 `;
 
 const HR = styled.div`
     width: 100%;
     height: 1px;
     background-color: ${({theme}) => theme.text_secondary};
+    margin: 10px 0px;
 `;
 
-const menuItems = [
-    {
-        link: "/",
-        name: "Dashboard",
-        icon: <HomeRounded/>,
-    },
+const Sidebar = ({setMenuOpen, setDarkMode, darkMode, setUploadOpen}) => {
 
-    {
-        link: "/search",
-        name: "Search",
-        icon: <SearchRounded/>,
-    },
-
-    {
-        link: "/favourites",
-        name: "Favourites",
-        icon: <FavoriteRounded/>,
-    },
-]
-
-const button = [
+    const menuItems = [
+        {
+            link: "/",
+            name: "Dashboard",
+            icon: <HomeRounded/>,
+        },
     
-    {
-        fun: () => console.log("Upload"),
-        name: "Upload",
-        icon: <UploadRounded/>,
-    },
-
-    {
-        fun: () => console.log("Upload"),
-        name: "Light Mode",
-        icon: <LightModeRounded/>,
-    },
-
-    {
-        fun: () => console.log("Upload"),
-        name: "Log Out",
-        icon: <LogoutRounded/>,
-    },    
-]
-
-const Sidebar = () => {
+        {
+            link: "/search",
+            name: "Search",
+            icon: <SearchRounded/>,
+        },
+    
+        {
+            link: "/favourites",
+            name: "Favourites",
+            icon: <FavoriteRounded/>,
+        },
+    ]
+    
+    const button = [
+        
+        {
+            fun: () => console.log("Upload"),
+            name: "Upload",
+            icon: <UploadRounded/>,
+        },
+    
+        {
+            fun: () => setDarkMode(!darkMode),
+            name: "Light Mode",
+            icon: <LightModeRounded/>,
+        },
+    
+        {
+            fun: () => console.log("Upload"),
+            name: "Log Out",
+            icon: <LogoutRounded/>,
+        },    
+    ]
     return (
     <MenuContainer>
         <Flex>
@@ -121,7 +122,7 @@ const Sidebar = () => {
         </Close>
         </Flex>
         {menuItems.map((item)=>(
-            <Link to={item.link}>
+            <Link to={item.link} style={{ textDecoration: "none"}}>
             <Elements>
                 {item.icon}
                 <NavText>{item.name}</NavText>
@@ -129,6 +130,12 @@ const Sidebar = () => {
             </Link>
         ))}
         <HR/>
+        {button.map((item)=>(
+            <Elements onClick={item.fun}>
+                {item.icon}
+                <NavText>{item.name}</NavText>
+            </Elements>
+        ))}
     </MenuContainer>
     );
 };

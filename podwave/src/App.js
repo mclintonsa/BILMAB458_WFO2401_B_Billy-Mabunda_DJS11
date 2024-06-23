@@ -6,24 +6,36 @@ import { BrowserRouter } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
-  background: ${({theme})=>theme.bg};
+  background: ${({theme})=>theme.bgLight};
   width: 100%;
   height: 100vh; 
   overflow-x: hidden; 
   overflow-y: hidden;
 `;
 
+const Frame = styled.div`
+  display: flex;
+  flex-direction: column; 
+  flex: 3;
+`;
+
+
+
 function App() {
   //hooks
   const [darkMode, SetDarkMode] = useState(true);
-
+  const [menuOpen, setMenuOpen] = useState(true);
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <BrowserRouter>
         <Container>
-          <Sidebar />
-           PodWave
+          <Sidebar 
+          setMenuOpen={setMenuOpen} 
+          SetDarkMode={SetDarkMode} 
+          darkMode={darkMode}
+          />
+           <Frame>PodWave</Frame>
        </Container>
       </BrowserRouter>
     </ThemeProvider>
