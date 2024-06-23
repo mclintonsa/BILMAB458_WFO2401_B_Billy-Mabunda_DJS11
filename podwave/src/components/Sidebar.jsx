@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {HomeRounded, CloseRounded} from "@mui/icons-material";
 import LogoImage from "../Images/Logo.png";
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const MenuContainer = styled.div`
     flex: 0.5;
@@ -57,6 +57,7 @@ const Elements = styled.div`
 `;
 const NavText = styled.div`
     padding: 12px 0px;
+    text-decoration: none; 
 `;
 
 const Sidebar = () => {
@@ -69,12 +70,12 @@ const Sidebar = () => {
             <CloseRounded/>
         </close>
         </Flex>
-        <link to="/">
+        <Link to="/">
         <Elements>
             <HomeRounded/>
             <NavText>Dashboard</NavText>
         </Elements>
-        </link>
+        </Link>
     </MenuContainer>
 
 };
