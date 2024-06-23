@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {HomeRounded, closeRounded} from "@mui/icons-material"
+import {HomeRounded, CloseRounded} from "@mui/icons-material"
 
 const MenuContainer = styled.div``;
 const Logo = styled.div``;
@@ -12,7 +12,7 @@ const Sidebar = () => {
     return <MenuContainer>
         <Logo></Logo>
         <close>
-            <closeRounded/>
+            <CloseRounded/>
         </close>
         <Elements>
             <HomeRounded/>
