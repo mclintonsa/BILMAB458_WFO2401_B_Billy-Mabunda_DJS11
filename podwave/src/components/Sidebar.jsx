@@ -48,9 +48,10 @@ const Elements = styled.div`
     justify-content: flex-start;
     align-items: center;
     gap: 12px;
-    cursor: pointer;
+    cursor: pointer;s
     color: ${({theme}) => theme.text_secondary};
     width: 100%;
+    text-decoration: none;
     &:hover {
         background-color: ${({theme}) => theme.text_secondary +50};    
     }
@@ -58,6 +59,12 @@ const Elements = styled.div`
 const NavText = styled.div`
     padding: 12px 0px;
     text-decoration: none; 
+`;
+
+const HR = styled.div`
+    width: 100%;
+    height: 1px;
+    background-color: ${({theme}) => theme.text_secondary};
 `;
 
 const menuItems = [
@@ -83,19 +90,19 @@ const menuItems = [
 const button = [
     
     {
-        fun: () => console.log("Upload")
+        fun: () => console.log("Upload"),
         name: "Upload",
         icon: <UploadRounded/>,
     },
 
     {
-        fun: () => console.log("Upload")
+        fun: () => console.log("Upload"),
         name: "Light Mode",
         icon: <LightModeRounded/>,
     },
 
     {
-        fun: () => console.log("Upload")
+        fun: () => console.log("Upload"),
         name: "Log Out",
         icon: <LogoutRounded/>,
     },    
@@ -114,16 +121,16 @@ const Sidebar = () => {
         </Close>
         </Flex>
         {menuItems.map((item)=>(
-            <Link to="/">
+            <Link to={item.link}>
             <Elements>
-                <HomeRounded/>
-                <NavText>Dashboard</NavText>
+                {item.icon}
+                <NavText>{item.name}</NavText>
             </Elements>
             </Link>
         ))}
-        
+        <HR/>
     </MenuContainer>
-
+    );
 };
 
 export default Sidebar;
