@@ -7,9 +7,19 @@ const MenuContainer = styled.div`
     flex-direction: column; 
     height: 100vh;
     display: flex;
-    background-color: ${({theme}) => theme.bg}
+    background-color: ${({theme}) => theme.bg};
+    color: ${({theme}) => theme.text_primary};
 `;
-const Logo = styled.div``;
+const Logo = styled.div`
+    color: ${({theme}) => theme.primary};
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 6px;
+    font-weight: bold; 
+    font-size: 20px;
+    margin: 16px 0px;
+`;
 const Close = styled.div``;
 const Elements = styled.div``;
 const NavText = styled.div``;
